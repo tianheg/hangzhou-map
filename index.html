@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>杭州 IT 公司地图</title>
+  <style>
+    html,
+    body,
+    #container {
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container"></div>
+  <script src="https://webapi.amap.com/loader.js"></script>
+  <script>
+    AMapLoader.load({
+      "key": "338cbd517c5c1060753e8926370a03f2",
+      "version": "1.4.15",
+      "plugins": ['AMap.ControlBar']
+    }).then((AMap) => {
+      map = new AMap.Map('container', {
+        resizeEnable: true,
+        rotateEnable: true,
+        pitchEnable: true,
+        zoom: 12,
+        pitch: 75,
+        rotation: -15,
+        viewMode: '3D',//开启3D视图,默认为关闭
+        expandZoomRange: true,
+        zooms: [3, 20],
+        center: [120.183768, 30.244367]
+      });
+
+      map.addControl(new AMap.ControlBar({
+        showZoomBar: false,
+        showControlButton: true,
+        position: {
+          right: '10px',
+          top: '10px'
+        }
+      }))
+    }).catch((e) => {
+      console.error(e);
+    });
+  </script>
+</body>
+
+</html>
